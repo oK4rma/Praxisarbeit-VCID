@@ -1,0 +1,9 @@
+{% macro reserve(id, is_reserved, date, form) -%} {% if not is_reserved %}
+    <form action="{{ url_for('rental.reserve', vehicle=id, day=date ) }}" method="post">
+        {{ form.hidden_tag() }} {{ form.submit(value='Reserve') }}
+    </form>
+{% else %}
+    <form action="{{ url_for('rental.free', vehicle=id, day=date) }}" method="post">
+        {{ form.hidden_tag() }} {{ form.submit(value='Release') }}
+    </form>
+{% endif %} {%- endmacro %}

@@ -1,0 +1,87 @@
+import logging
+import os
+from flask import Flask
+from flask_apidoc import ApiDoc
+from flask_login import LoginManager
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+from logging.handlers import RotatingFileHandler
+from sqlalchemy import select
+
+from config import Config
+
+db = SQLAlchemy()
+migrate = Migrate()
+login = LoginManager()
+login.login_view = "auth.login"  # type: ignore
+doc = ApiDoc()
+
+
+def create_app(config=Config):
+    # create and configure the app
+    app = Flask(__name__, instance_relative_config=True)
+
+    # We can override this, for tests for example
+    app.config.from_object(config)
+
+    db.init_app(app)
+    migrate.init_app(app, db)
+    login.init_app(app)
+
+    from app import models
+
+    from app.errors import bp as errors_bp
+
+    app.register_blueprint(errors_bp)
+
+    from app.rental import bp as rental_bp
+
+    app.register_blueprint(rental_bp)
+
+    from app.auth import bp as auth_bp
+
+    app.register_blueprint(auth_bp, url_prefix="/auth")
+
+    from app.api import bp as api_bp
+
+    app.register_blueprint(api_bp, url_prefix="/api")
+
+    doc.init_app(app)
+
+    if not app.debug and not app.testing:
+        if app.config["LOG_TO_STDOUT"]:
+            stream_handler = logging.StreamHandler()
+            stream_handler.setLevel(logging.INFO)
+            app.logger.addHandler(stream_handler)
+        else:
+            if not os.path.exists("logs"):
+                os.mkdir("logs")
+            file_handler = RotatingFileHandler(
+                "logs/rental.log", maxBytes=10240, backupCount=10
+            )
+            file_handler.setFormatter(
+                logging.Formatter(
+                    "%(asctime)s %(levelname)s: %(message)s "
+                    "[in %(pathname)s:%(lineno)d]"
+                )
+            )
+            file_handler.setLevel(logging.INFO)
+            app.logger.addHandler(file_handler)
+
+        app.logger.setLevel(logging.INFO)
+        app.logger.info("App startup")
+
+    # In a testing environment we want full control over the database
+    if not app.testing:
+        with app.app_context():
+            # Create all database tables
+            db.create_all()
+
+            # TODO: This is to handle currently out of scope admin functionality.
+            if not db.session.execute(select(models.rentalvehicle)).first():
+                # Create default rental vehicles
+                for x in range(1, 4):
+                    vehicle = models.rentalvehicle(id=x, price=1, info=f"vehicles {x}")
+                    db.session.add(vehicle)
+                db.session.commit()
+    return app
