@@ -24,6 +24,6 @@ CREATE TABLE reservation
     date            DATE NOT NULL,
     rental_vehicle_id INT  NOT NULL,
     user_id         INT  NOT NULL,
-    FOREIGN KEY (rental_vehicle_id) REFERENCES rentalvehicle (id),
+    FOREIGN KEY (rental_vehicle_id) REFERENCES rentalvehicle(id),
     FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
