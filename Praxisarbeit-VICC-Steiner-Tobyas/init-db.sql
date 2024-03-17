@@ -5,13 +5,12 @@ CREATE TABLE "user"
     username         VARCHAR(64)  NOT NULL,
     email            VARCHAR(128) NOT NULL,
     password_hash    VARCHAR(128) NOT NULL,
-    cd
-                     token VARCHAR(32),
+    token            VARCHAR(32),
     token_expiration TIMESTAMP
 );
 
 -- Erstellung der Tabelle rentalvehicle
-CREATE TABLE rentalvehicle
+CREATE TABLE rentalvehicle 
 (
     id    SERIAL PRIMARY KEY,
     price FLOAT NOT NULL,
