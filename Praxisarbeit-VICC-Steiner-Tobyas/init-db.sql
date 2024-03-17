@@ -1,5 +1,5 @@
 -- Erstellung der Tabelle User
-CREATE TABLE User
+CREATE TABLE "user"
 (
     id               SERIAL PRIMARY KEY,
     username         VARCHAR(64)  NOT NULL,
@@ -19,12 +19,12 @@ CREATE TABLE rentalvehicle
 );
 
 -- Erstellung der Tabelle Reservation
-CREATE TABLE Reservation
+CREATE TABLE reservation
 (
     id              SERIAL PRIMARY KEY,
     date            DATE NOT NULL,
     rental_vehicle_id INT  NOT NULL,
     user_id         INT  NOT NULL,
     FOREIGN KEY (rental_vehicle_id) REFERENCES rentalvehicle (id),
-    FOREIGN KEY (user_id) REFERENCES User (id)
+    FOREIGN KEY (user_id) REFERENCES "user" (id)
 );
