@@ -25,5 +25,5 @@ CREATE TABLE reservation
     rental_vehicle_id INT  NOT NULL,
     user_id         INT  NOT NULL,
     FOREIGN KEY (rental_vehicle_id) REFERENCES rentalvehicle (id),
-    FOREIGN KEY (user_id) REFERENCES "user" (id)
+    FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
