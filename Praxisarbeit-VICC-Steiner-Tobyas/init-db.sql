@@ -28,15 +28,3 @@ CREATE TABLE Reservation
     FOREIGN KEY (rental_vehicle_id) REFERENCES rentalvehicle (id),
     FOREIGN KEY (user_id) REFERENCES User (id)
 );
-
-
--- Erstellung der Tabelle Reservation
-CREATE TABLE Reservation
-(
-    id              SERIAL PRIMARY KEY,
-    date            DATE NOT NULL,
-    rental_vehicle_id INT  NOT NULL,
-    user_id         INT  NOT NULL,
-    FOREIGN KEY (rental_vehicle_id) REFERENCES rentalvehicle (id),
-    FOREIGN KEY (user_id) REFERENCES User (id)
-);
