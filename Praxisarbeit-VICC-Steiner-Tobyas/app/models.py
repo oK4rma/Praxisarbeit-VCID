@@ -116,7 +116,7 @@ class rentalvehicle(db.Model, CollectionMixin):
 class Reservation(db.Model, CollectionMixin):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date)
-    rental_vehicle_id = db.Column(db.Integer, db.ForeignKey("rental_vehicle.id"))
+    rental_vehicle_id = db.Column(db.Integer, db.ForeignKey("rentalvehicle.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     def to_dict(self):
