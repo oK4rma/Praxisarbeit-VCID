@@ -861,6 +861,7 @@ html {
 
 .dropdown:hover {
     display: block;
+    visibility: hidden;
     transition: background-color 0.4s ease;
     background-color: #a5bfaa;
     color: #FFFFFF;
@@ -869,6 +870,7 @@ html {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+    visibility: visible;
     background-color: #e1eae1;
     color: #FFFFFF;
 }
