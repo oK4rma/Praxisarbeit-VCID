@@ -76,7 +76,7 @@ class rentalvehicle(db.Model, CollectionMixin):
     price = db.Column(db.Float)
     info = db.Column(db.String(256))
     reservations = db.relationship(
-        "Reservation", backref="rentalvehicle", lazy="dynamic"
+        "Reservation", backref="rental_vehicle", lazy="dynamic"
     )
 
     def is_reserved(self, date):
