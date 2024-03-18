@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  flask:
+    build: ./flask
+    volumes:
+      - ./flask:/app
+    depends_on:
+      - db
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - flask
+
+  db:
+    build: ./postgresql
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=sqlcontainer
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=kali
+
+volumes:
+  postgres_data:

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% import 'components/vehicle.html' as vehiclerender %}
+{% block content %}
+    <div class="flex w-full flex-grow">
+        <div class="flex flex-col gap-20 items-center flex-grow card bg-white rounded-box px-8 py-10">
+            <div class="stats shadow">
+                <div style="background-color: #e1eae1;" class="grid grid-cols-1 gap-6 max-w-sm shadow-2xl">
+                    <div class="stat place-items-center">
+                        <h3 style="color: #13250e;" class="text-2xl">Calendar</h3>
+                        <div>{% include 'components/calendar.html' %}</div>
+                    </div>
+                </div>
+            </div>
+            <div Style="background-color: #e1eae1;" class="stats shadow">
+                <div class="stat place-items-center">
+                    <div class="grid grid-cols-3 gap-6 w-full h-full">
+                        {% for vehicle in vehicles %}
+                            <div>
+                                {% if vehicle.id == 1 %}
+                                    <div class="vehicles-image-wrapper">
+                                        <img src="{{ url_for('static',filename='VW-GOLF.png') }}" alt="VW Golf">
+                                        <div class="info">
+                                            Informationen über VW Golf:
+                                            Firmenauto steht auf dem grossen Parkplatz auf der Nummer 1.
+                                            Fahrzeug bitte nach gebrauch mit der Tankkarte tanken.
+                                            Das Tanken bitte im Tankheft eintragen.
+                                        </div>
+                                    </div>
+                                {% elif vehicle.id == 2 %}
+                                    <div class="vehicles-image-wrapper">
+                                        <img src="{{ url_for('static',filename='VW-PASSAT.png') }}" alt="VW Passat">
+                                        <div class="info">
+                                            Informationen über VW Passat:
+                                            Firmenauto steht auf dem grossen Parkplatz auf der Nummer 2.
+                                            Fahrzeug bitte nach gebrauch mit der Tankkarte tanken.
+                                            Das Tanken bitte im Tankheft eintragen.
+                                        </div>
+                                    </div>
+                                {% elif vehicle.id == 3 %}
+                                    <div class="vehicles-image-wrapper">
+                                        <img src="{{ url_for('static',filename='VW-T6.png') }}" alt="VW T6">
+                                        <div class="info">
+                                            Informationen über VW T6:
+                                            Firmenauto steht auf dem grossen Parkplatz auf der Nummer 3.
+                                            Fahrzeug bitte nach gebrauch mit der Tankkarte tanken.
+                                            Das Tanken bitte im Tankheft eintragen.
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {{ vehiclerender.vehicle(vehicle.id, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
