@@ -10,5 +10,8 @@ COPY . /app
 # Installieren Sie die benötigten Pakete aus der requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# start app with: flask run --host=0.0.0.0
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Installieren Sie Gunicorn
+RUN pip install gunicorn
+
+# Starten Sie die App mit Gunicorn. Passen Sie die Anzahl der Worker und Threads nach Bedarf an.
+CMD ["gunicorn", "-w", "3", "-b", "0.0.0.0:5000", "app:app"]
