@@ -64,7 +64,7 @@
                                     </div>
                                 {% endif %}
                                 <!-- Verwendet das importierte 'vehiclerender'-Makro für jedes Fahrzeug. -->
-                                {{ vehiclerender.vehicle(vehicle.name, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
+                                {{ vehiclerender.vehicle(vehicle.id, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
                             </div>
                         {% endfor %}
                     </div>
