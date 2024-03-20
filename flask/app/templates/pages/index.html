@@ -1,22 +1,36 @@
+<!-- Erbt von der Basis-Template-Datei 'base.html'. -->
 {% extends "base.html" %}
+<!-- Importiert Fahrzeugkomponenten für die Wiederverwendung. -->
 {% import 'components/vehicle.html' as vehiclerender %}
+<!-- Beginn des Inhaltsblocks, der in 'base.html' definiert ist. -->
 {% block content %}
+     <!-- Flex-Container, der sich über die volle Breite erstreckt und wächst, um den verfügbaren Platz auszufüllen. -->
     <div class="flex w-full flex-grow">
+        <!-- Vertikaler Flex-Container für die Inhaltskarten mit einem Abstand und zentraler Ausrichtung der Elemente. -->
         <div class="flex flex-col gap-20 items-center flex-grow card bg-white rounded-box px-8 py-10">
+            <!-- Container für den Kalender mit Schatteneffekt. -->
             <div class="stats shadow">
+                <!-- Einziger Kalenderblock mit abweichendem Hintergrund und Schatteneffekt. -->
                 <div style="background-color: #e1eae1;" class="grid grid-cols-1 gap-6 max-w-sm shadow-2xl">
                     <div class="stat place-items-center">
+                        <!-- Überschrift für den Kalenderbereich. -->
                         <h3 style="color: #13250e;" class="text-2xl">Calendar</h3>
+                        <!-- Inkludiert den Kalender von einer externen Komponente. -->
                         <div>{% include 'components/calendar.html' %}</div>
                     </div>
                 </div>
             </div>
+            <!-- Container für die Fahrzeugübersicht mit Schatteneffekt. -->
             <div Style="background-color: #e1eae1;" class="stats shadow">
                 <div class="stat place-items-center">
+                    <!-- Rasterlayout für die Anzeige von Fahrzeugen. -->
                     <div class="grid grid-cols-3 gap-6 w-full h-full">
+                        <!-- Iteriert über jedes Fahrzeug. -->
                         {% for vehicle in vehicles %}
                             <div>
+                                <!-- Bedingte Blöcke für spezifische Fahrzeuge mit entsprechenden Bildern und Informationen. -->
                                 {% if vehicle.id == 1 %}
+                                    <!-- VW Golf mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-GOLF.png') }}" alt="VW Golf">
                                         <div class="info">
@@ -27,6 +41,7 @@
                                         </div>
                                     </div>
                                 {% elif vehicle.id == 2 %}
+                                    <!-- VW Passat mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-PASSAT.png') }}" alt="VW Passat">
                                         <div class="info">
@@ -37,6 +52,7 @@
                                         </div>
                                     </div>
                                 {% elif vehicle.id == 3 %}
+                                    <!-- VW T6 mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-T6.png') }}" alt="VW T6">
                                         <div class="info">
@@ -47,6 +63,7 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                <!-- Verwendet das importierte 'vehiclerender'-Makro für jedes Fahrzeug. -->
                                 {{ vehiclerender.vehicle(vehicle.id, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
                             </div>
                         {% endfor %}
