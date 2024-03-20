@@ -63,10 +63,14 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                 <!-- Gibt den IDs einen Namen -->
+                                 <!-- ID 1 den Name VW Golf -->
                                  {% if vehicle.id == 1 %}
                                        {% set vehicle_name = "VW Golf" %}
+                                 <!-- ID 2 den Name VW Passat -->
                                    {% elif vehicle.id == 2 %}
                                        {% set vehicle_name = "VW Passat" %}
+                                 <!-- ID 3 den Name VW Bus -->
                                    {% elif vehicle.id == 3 %}
                                        {% set vehicle_name = "VW Bus" %}
                                    {% endif %}
