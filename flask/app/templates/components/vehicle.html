@@ -6,7 +6,8 @@
     <!-- Stellt einen Container dar; die Rahmenfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
     <div
             class="gap-4 flex items-center justify-center flex-col 
-            {{ 'bg-green-100' if not is_reserved else 'bg-red-100' }} border-2 p-4
+            {% if not is_reserved %} bg-green-100 {% else %} bg-red-100 {% endif %}
+            border-2 {{ 'border-green-300' if not is_reserved else 'border-red-300' }} p-4"
     >
         <!-- Zeigt die ID des Fahrzeugs an. -->
         <h1 style="color: #13250e;" class="fw-bold text-2xl">{{ id }}</h1>
