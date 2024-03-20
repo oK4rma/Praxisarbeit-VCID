@@ -22,6 +22,8 @@
                 <li><a href="{{ url_for('auth.login') }}">Login</a></li>
             <!-- Für angemeldete Benutzer. -->
             {% else %}
+                <!-- Link zur Hauptseite -->
+                <li><a href="{{ url_for('rental.index') }}">Home</a></li>
                 <!-- Link zum Benutzerkonto. -->
                 <li><a href="{{ url_for('rental.account') }}">Account</a></li>
                 <!-- Logout-Option. -->
