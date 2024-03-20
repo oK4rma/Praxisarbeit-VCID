@@ -1,17 +1,26 @@
+<!-- Erbt von der Basis-Template-Datei 'base.html'. -->
 {% extends "base.html" %}
+<!-- Beginn des Inhaltsblocks, der in 'base.html' definiert ist. -->
 {% block content %}
+    <!-- Hauptcontainer mit weißem Hintergrund. -->
     <div style="background-color: #ffffff;" class="hero flex-grow">
+        <!-- Doppelter Container für Schatten und Layout; möglicherweise ein Fehler oder spezielles Design. -->
         <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
             <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                <!-- Zentriert den Inhalt innerhalb des Heldenbereichs. -->
                 <div class="hero-content text-center">
+                     <!-- Container für den Text, begrenzt die maximale Breite. -->
                     <div class="max-w-md">
+                        <!-- Titel der Fehlermeldung. -->
                         <h1 style="color: #13250e;" class="text-5xl font-bold">Not found</h1>
+                        <!-- Detailierte Fehlerbeschreibung. -->
                         <p style="color: #13250e;" class="py-6">
                             Oops!
                             404 - Page not Found
                             The page you are looking for might have been removed had its name changed or is temporarily
                             unavailable....</p>
                         </p>
+                        <!-- Link zurück zur Startseite. -->
                         <a href="{{ url_for("rental.index") }}" class="btn btn-primary">To start</a>
                     </div>
                 </div>
