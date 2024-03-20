@@ -27,10 +27,19 @@
                     <div class="grid grid-cols-3 gap-6 w-full h-full">
                         <!-- Iteriert über jedes Fahrzeug. -->
                         {% for vehicle in vehicles %}
+                         {% if vehicle.id == 1 %}
+                             {% set vehicle_name = "VW Golf" %}
+                             {% set image_filename = "VW-GOLF.png" %}
+                         {% elif vehicle.id == 2 %}
+                             {% set vehicle_name = "VW Passat" %}
+                             {% set image_filename = "VW-PASSAT.png" %}
+                         {% elif vehicle.id == 3 %}
+                             {% set vehicle_name = "VW T6" %}
+                             {% set image_filename = "VW-T6.png" %}
+                         {% endif %}
                             <div>
                                 <!-- Bedingte Blöcke für spezifische Fahrzeuge mit entsprechenden Bildern und Informationen. -->
                                 {% if vehicle.id == 1 %}
-                                 {% set vehicle_name = "VW Golf" %}
                                     <!-- VW Golf mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-GOLF.png') }}" alt="VW Golf">
@@ -42,7 +51,6 @@
                                         </div>
                                     </div>
                                 {% elif vehicle.id == 2 %}
-                                 {% set vehicle_name = "VW Passat" %}
                                     <!-- VW Passat mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-PASSAT.png') }}" alt="VW Passat">
@@ -54,7 +62,6 @@
                                         </div>
                                     </div>
                                 {% elif vehicle.id == 3 %}
-                                 {% set vehicle_name = "VW T6" %}
                                     <!-- VW T6 mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-T6.png') }}" alt="VW T6">
