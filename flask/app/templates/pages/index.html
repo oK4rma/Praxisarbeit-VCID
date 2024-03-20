@@ -30,6 +30,7 @@
                             <div>
                                 <!-- Bedingte Blöcke für spezifische Fahrzeuge mit entsprechenden Bildern und Informationen. -->
                                 {% if vehicle.id == 1 %}
+                                 {% set vehicle_name = "VW Golf" %}
                                     <!-- VW Golf mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-GOLF.png') }}" alt="VW Golf">
@@ -41,6 +42,7 @@
                                         </div>
                                     </div>
                                 {% elif vehicle.id == 2 %}
+                                 {% set vehicle_name = "VW Passat" %}
                                     <!-- VW Passat mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-PASSAT.png') }}" alt="VW Passat">
@@ -52,6 +54,7 @@
                                         </div>
                                     </div>
                                 {% elif vehicle.id == 3 %}
+                                 {% set vehicle_name = "VW T6" %}
                                     <!-- VW T6 mit Bild und Informationen. -->
                                     <div class="vehicles-image-wrapper">
                                         <img src="{{ url_for('static',filename='VW-T6.png') }}" alt="VW T6">
@@ -64,13 +67,6 @@
                                     </div>
                                 {% endif %}
                                 <!-- Verwendet das importierte 'vehiclerender'-Makro für jedes Fahrzeug. -->
-                                 {% if vehicle.id == 1 %}
-                                       {% set vehicle_name = "VW Golf" %}
-                                   {% elif vehicle.id == 2 %}
-                                       {% set vehicle_name = "VW Passat" %}
-                                   {% elif vehicle.id == 3 %}
-                                       {% set vehicle_name = "VW Bus" %}
-                                   {% endif %}
                                  {{ vehiclerender.vehicle(vehicle_name, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
                             </div>
                         {% endfor %}
