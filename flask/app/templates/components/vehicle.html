@@ -4,6 +4,7 @@
 <!-- Definiert ein Makro 'vehicle' mit Parametern für Fahrzeug-ID, Reservierungsstatus, Infos zum Fahrzeug, das aktive Datum und ein Formular. -->
 {% macro vehicle(id, is_reserved, info, activeDate, form) -%}
 <!-- Stellt einen Container dar; die Hintergrundfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
+<!-- Stellt einen Container dar; die Hintergrundfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
 <div
     class="gap-4 flex items-center justify-center flex-col p-4
            {{ 'bg-red-100 border-red-300' if is_reserved else 'bg-green-100 border-green-300' }}"
