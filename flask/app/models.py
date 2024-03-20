@@ -124,13 +124,14 @@ class rentalvehicle(db.Model, CollectionMixin):
     def __repr__(self):
         return f"<rentalvehicle {self.id}>"
 
-
+# Modell für eine Reservierung.
 class Reservation(db.Model, CollectionMixin):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date)
     rental_vehicle_id = db.Column(db.Integer, db.ForeignKey("rentalvehicle.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
+      #  Konvertiert die Reservierungsinformationen in ein Python-Dictionary.
     def to_dict(self):
         data = {
             "id": self.id,
