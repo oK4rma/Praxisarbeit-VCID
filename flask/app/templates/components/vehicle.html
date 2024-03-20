@@ -5,7 +5,7 @@
 {% macro vehicle(id, is_reserved, info, activeDate, form) -%}
 <!-- Stellt einen Container dar; die Hintergrundfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
 <div class="gap-4 flex items-center justify-center flex-col p-4"
-    style="background-color: {{ 'red' if is_reserved else 'green' }}; border: 2px solid {{ 'red' if is_reserved else 'green' }};">
+    style="background-color: {{ 'rgba(255, 0, 0, 0.1)' if is_reserved else 'rgba(0, 255, 0, 0.1)' }}; border: 2px solid {{ 'rgba(255, 0, 0, 0.3)' if is_reserved else 'rgba(0, 255, 0, 0.3)' }};">
     <!-- Zeigt die ID des Fahrzeugs an. -->
     <h1 style="color: #13250e;" class="fw-bold text-2xl">{{ id }}</h1>
     <!-- Ruft das 'reserve'-Makro aus dem importierten Template auf, um entweder den Reservierungs- oder Freigabebutton zu rendern. -->
