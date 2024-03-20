@@ -1,0 +1,82 @@
+<!-- Erbt von der Basis-Template-Datei 'base.html'. -->
+{% extends "base.html" %}
+<!-- Beginn des Inhaltsblocks, der in 'base.html' definiert ist. -->
+{% block content %}
+    <!-- Flex-Container, der sich über die volle Breite erstreckt und wächst, um den verfügbaren Platz auszufüllen. -->
+    <div class="flex w-full flex-grow">
+        <!-- Vertikaler Flex-Container für die Inhaltskarten mit weißem Hintergrund und einem Abstand zwischen ihnen. -->
+        <div class="flex flex-col gap-20 items-center flex-grow card bg-white rounded-box px-8 py-10">
+            <!-- Container für das Registrierungsformular mit spezifischer Hintergrundfarbe und Schatteneffekt. -->
+            <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                 <!-- Überschrift für den Registrierungsbereich. -->
+                <div class="card-body">
+                    <h1 style="color: #13250e;" class="text-5xl font-bold">Register</h1>
+                    <!-- Das Registrierungsformular, das beim Absenden keine Validierung durchführt (novalidate). -->
+                    <form action="" method="post" novalidate>
+                        <!-- Einbettung von CSRF-Token und anderen verborgenen Eingaben. -->
+                        {{ form.hidden_tag() }}
+                        <!-- Benutzername-Eingabefeld mit dynamischer Fehleranzeige. -->
+                        <div style="color: #13250e;" class="form-control">
+                            {{ form.username.label }}
+                            {{ form.username(size=32) }}
+                            {% for error in form.username.errors %}
+                                <label class="label">
+                                    <span class="text-red-400 label-text-alt">{{ error }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- E-Mail-Eingabefeld mit dynamischer Fehleranzeige. -->
+                        <div style="color: #13250e;" class="form-control mt-3">
+                            {{ form.email.label }}
+                            {{ form.email(size=32) }}
+                            {% for error in form.email.errors %}
+                                <label class="label">
+                                    <span class="text-red-400 label-text-alt">{{ error }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- Passwort-Eingabefeld mit dynamischer Fehleranzeige. -->
+                        <div style="color: #13250e;" class="form-control mt-3">
+                            {{ form.password.label }}
+                            {{ form.password(size=32) }}
+                            {% for error in form.password.errors %}
+                                <label class="label">
+                                    <span class="text-red-400 label-text-alt">{{ error }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- Passwort-Wiederholungsfeld mit dynamischer Fehleranzeige. -->
+                        <div style="color: #13250e;" class="form-control mt-3">
+                            {{ form.passwordRepeat.label }}
+                            {{ form.passwordRepeat(size=32) }}
+                            {% for error in form.passwordRepeat.errors %}
+                                <label class="label">
+                                    <span class="text-red-400 label-text-alt">{{ error }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- Absenden-Button für das Formular. -->
+                        <div class="form-control mt-6">{{ form.submit() }}</div>
+                    </form>
+                </div>
+            </div>
+            <!-- Weitere Karte mit Informationen zur Account-Logik. -->
+            <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                    <div class="text-center lg:text-left">
+                        <div style="color: #13250e;" class="card-body">
+                            <!-- Überschrift und Beschreibung für Nutzer, die bereits einen Login besitzen. -->
+                            <h1 style="color: #13250e;" class="text-5xl font-bold">Have a Login?</h1>
+                            <p style="color: #13250e;" class="py-6">
+                                Register as a new user. Choose a username and set your password. If you already have a
+                                user, login below
+                            </p>
+                            <!-- Link zur Login-Seite. -->
+                            <a class="btn btn-secondary mt-r text-sm" href="{{ url_for("auth.login") }}">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

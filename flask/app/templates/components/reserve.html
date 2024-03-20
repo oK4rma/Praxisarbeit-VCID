@@ -1,0 +1,21 @@
+<!-- Definiert ein Makro 'reserve' mit Parametern für die ID, Reservierungsstatus, Datum und ein Formular. -->
+{% macro reserve(id, is_reserved, date, form) -%} 
+<!-- Überprüft, ob das Fahrzeug nicht reserviert ist. -->
+{% if not is_reserved %}
+    <!-- Erstellt ein Formular zum Reservieren eines Fahrzeugs. -->
+    <form action="{{ url_for('rental.reserve', vehicle=id, day=date ) }}" method="post">
+        <!-- Fügt CSRF-Token und andere versteckte Felder ein. -->
+        {{ form.hidden_tag() }}
+        <!-- Zeigt einen 'Reserve'-Button an. -->
+        {{ form.submit(value='Reserve') }}
+    </form>
+<!-- Falls das Fahrzeug bereits reserviert ist. -->
+{% else %}
+    <!-- Erstellt ein Formular zum Freigeben der Reservierung. -->
+    <form action="{{ url_for('rental.free', vehicle=id, day=date) }}" method="post">
+        <!-- Fügt CSRF-Token und andere versteckte Felder ein. -->
+        {{ form.hidden_tag() }}
+        <!-- Zeigt einen 'Release'-Button an, um die Reservierung aufzuheben. -->
+        {{ form.submit(value='Release') }}
+    </form>
+{% endif %} {%- endmacro %}

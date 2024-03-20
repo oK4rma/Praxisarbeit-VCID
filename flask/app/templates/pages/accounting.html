@@ -1,0 +1,59 @@
+<!-- Erbt von der Basis-Template-Datei 'base.html'. -->
+{% extends "base.html" %}
+<!-- Beginn des Inhaltsblocks, der in 'base.html' definiert ist. -->
+{% block content %}
+<!-- Flex-Container, der den gesamten verfügbaren Raum einnimmt. -->
+    <div class="flex w-full flex-grow">
+        <!-- Kartencontainer mit weißem Hintergrund und Abstand zwischen den Elementen. -->
+        <div class="flex flex-col gap-20 items-center flex-grow card bg-white rounded-box px-8 py-10">
+            <!-- Container für Statistiken mit spezifischer Hintergrundfarbe. -->
+            <div style="background-color: #e1eae1;" class="stats">
+                <!-- Anzeige der Gesamtanzahl der Reservierungen. -->
+                <div class="stat place-items-center">
+                    <div style="color: #13250e;" class="stat-title">Total Reservations</div>
+                    <div style="color: #13250e;" class="stat-value">{{ reservations|length }}</div>
+                </div>
+                <!-- Anzeige der Belegungsrate in Prozent und Vergleich der belegten mit den gesamten Fahrzeugen. -->
+                <div class="stat place-items-center">
+                    <div style="color: #13250e;" class="stat-title">Occupation</div>
+                    <div style="color: #13250e;" class="stat-value">{{ occupation }} %</div>
+                    <div style="color: #13250e;" class="stat-desc">{{ occupied }} / total {{ vehicles }} vehicles</div>
+                </div>
+                <!-- Anzeige des Gesamterlöses. -->
+                <div class="stat place-items-center">
+                    <div style="color: #13250e;" class="stat-title">Total Revenue</div>
+                    <div style="color: #13250e;" class="stat-value">{{ revenue }} Day/s</div>
+                </div>
+            </div>
+            <!-- Zweiter Statistik-Container für eine detaillierte Auflistung der Reservierungen. -->
+            <div style="background-color: #e1eae1;" class="stats">
+                <div class="stat place-items-center">
+                    <div class="overflow-x-auto">
+                        <!-- Tabelle mit Reservierungsdetails. -->
+                        <table style="color: #13250e;" class="table">
+                            <thead>
+                            <tr>
+                                <th style="color: #13250e;">Number</th>
+                                <th style="color: #13250e;">User</th>
+                                <th style="color: #13250e;">Date</th>
+                                <th style="color: #13250e;">vehicles</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Schleife über alle Reservierungen zur Anzeige jeder einzelnen. -->
+                            {% for res in reservations %}
+                                <tr>
+                                    <th style="color: #13250e;">{{ loop.index }}</th>
+                                    <td style="color: #13250e;">{{ res.user.username }}</td>
+                                    <td style="color: #13250e;">{{ res.date }}</td>
+                                    <td style="color: #13250e;">{{ res.rental_vehicle.id }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
