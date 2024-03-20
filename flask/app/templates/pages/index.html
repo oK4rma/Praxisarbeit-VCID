@@ -64,15 +64,14 @@
                                     </div>
                                 {% endif %}
                                 <!-- Verwendet das importierte 'vehiclerender'-Makro für jedes Fahrzeug. -->
-                                {{ vehiclerender.vehicle(   
-                                        {% if vehicle.id == 1 %}
-                                            VW Golf
-                                        {% elif vehicle.id == 2 %}
-                                            VW Passat
-                                        {% elif vehicle.id == 3 %}
-                                            VW Bus
-                                        {% endif %}
-                                 , vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
+                                 {% if vehicle.id == 1 %}
+                                       {% set vehicle_name = "VW Golf" %}
+                                   {% elif vehicle.id == 2 %}
+                                       {% set vehicle_name = "VW Passat" %}
+                                   {% elif vehicle.id == 3 %}
+                                       {% set vehicle_name = "VW Bus" %}
+                                   {% endif %}
+                                {{ vehiclerender.vehicle(vehicle_name, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
                             </div>
                         {% endfor %}
                     </div>
