@@ -7,16 +7,23 @@ from app.api import bp
 from app.api.auth import token_auth
 from app.models import Reservation, rentalvehicle, User
 
-
+# Definiert eine Route '/account' für GET-Anfragen.
 @bp.route("/accounting", methods=["GET"])
+# Stellt sicher, dass der Benutzer authentifiziert sein muss, um auf diese Route zuzugreifen.
 @token_auth.login_required
 def get_accounting():
+       # Ruft alle Fahrzeuge aus der Datenbank ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
+    # Zählt die Fahrzeuge.
     vehicleCount = len(list(vehicles))
+    # Ermittelt das heutige Datum.
     today = datetime.date.today()
+    # Zählt, wie viele Fahrzeuge heute reserviert sind.
     occupied = len(list(filter(lambda x: x.is_reserved(today), vehicles)))
+    # Berechnet die Belegungsrate
     occupation = round((occupied / vehicleCount), 2)
 
+    # Ruft alle Reservierungen ab, die bis heute erfolgt sind, inklusive Verknüpfungen zu Fahrzeugen und Benutzern.
     reservations = db.session.scalars(
         select(Reservation)
         .filter(Reservation.date <= today)
@@ -24,7 +31,9 @@ def get_accounting():
         .join(User)
     ).all()
 
+     # Berechnet den Gesamterlös aus den Reservierungen.
     revenue = sum(map(lambda x: x.rental_vehicle.price, reservations))
+    # Gibt die Daten als JSON zurück.
     return jsonify(
         {
             "vehicles": vehicleCount,
