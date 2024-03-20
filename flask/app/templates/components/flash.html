@@ -6,7 +6,7 @@
     <div class="toast toast-top toast-end top-20 z-50">
         <!-- Iteriert über jede Nachricht und ihre Kategorie. -->
         {% for category, message in messages %}
-        <    !-- Setzt die CSS-Klasse basierend auf der Nachrichtenkategorie. 'info' für alle außer 'error'. -->
+        <!-- Setzt die CSS-Klasse basierend auf der Nachrichtenkategorie. 'info' für alle außer 'error'. -->
             <div class="alert alert-{{ 'info' if not category == 'error' else 'error' }} p-4">
                 <!-- SVG-Icon zur visuellen Repräsentation der Nachricht. -->
                 <svg
