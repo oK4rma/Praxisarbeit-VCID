@@ -6,6 +6,17 @@ from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import db, login
 
+# Fahrzeugobjekt
+class Vehicle(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+     # Name des Fahrzeugs hinzufügen
+    name = db.Column(db.String(100))
+
+# Jedes Fahrzeugobjekt hat ein Name
+vehicle1 = Vehicle(id=1, name="VW Golf")
+vehicle2 = Vehicle(id=2, name="VW Passat")
+vehicle3 = Vehicle(id=3, name="VW T6")
+
 class CollectionMixin(object):
     @staticmethod
     # Konvertiert eine SQL-Alchemy-Query in ein Wörterbuch mit einer Liste von Elementen.
