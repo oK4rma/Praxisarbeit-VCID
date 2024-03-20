@@ -4,15 +4,12 @@
 <!-- Definiert ein Makro 'vehicle' mit Parametern für Fahrzeug-ID, Reservierungsstatus, Infos zum Fahrzeug, das aktive Datum und ein Formular. -->
 {% macro vehicle(id, is_reserved, info, activeDate, form) -%}
 <!-- Stellt einen Container dar; die Hintergrundfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
-<!-- Stellt einen Container dar; die Hintergrundfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
-<!-- Stellt einen Container dar; die Hintergrundfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
-<div
-    class="gap-4 flex items-center justify-center flex-col p-4
-           {{ 'bg-red-100 border-red-300' if is_reserved else 'bg-green-100 border-green-300' }}"
->
+{% set container_class = 'bg-green-100 border-green-300' if not is_reserved else 'bg-red-100 border-red-300' %}
+<div class="gap-4 flex items-center justify-center flex-col p-4 {{ container_class }}">
     <!-- Zeigt die ID des Fahrzeugs an. -->
     <h1 style="color: #13250e;" class="fw-bold text-2xl">{{ id }}</h1>
     <!-- Ruft das 'reserve'-Makro aus dem importierten Template auf, um entweder den Reservierungs- oder Freigabebutton zu rendern. -->
     {{ reserverender.reserve(id, is_reserved, activeDate, form) }}
 </div>
+
 {%- endmacro %}
