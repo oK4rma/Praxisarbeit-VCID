@@ -5,9 +5,9 @@
 {% macro vehicle(id, is_reserved, info, activeDate, form) -%}
     <!-- Stellt einen Container dar; die Rahmenfarbe zeigt an, ob das Fahrzeug reserviert ist (rot) oder nicht (grün). -->
     <div
-            class="gap-4 flex items-center justify-center flex-col border-2 
-            {{ 'border-green-300' if not is_reserved else 'border-red-300' }} p-4"
-            style="{{ 'border-color: #e53e3e' if not is_reserved else 'border-color: 
+            class="gap-4 flex items-center justify-center flex-col 
+            {{ 'bg-green-100' if not is_reserved else 'bg-red-100' }} border-2 
+            {{ 'bg-green-100' if not is_reserved else 'bg-red-100' }} p-4"
     >
         <!-- Zeigt die ID des Fahrzeugs an. -->
         <h1 style="color: #13250e;" class="fw-bold text-2xl">{{ id }}</h1>
