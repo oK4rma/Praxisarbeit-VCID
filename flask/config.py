@@ -11,9 +11,9 @@ class Config(object):
     # Setzt den geheimen Schlüssel für die Anwendung.
     SECRET_KEY = os.environ.get("SECRET_KEY") or "not_so_secret_key"
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL")
+        "DATABASE_URL"
     # Konfiguriert die Datenbankverbindung.
-    or "sqlite:///" + os.path.join(baseDir, "app.db")
+    )  or "sqlite:///" + os.path.join(baseDir, "app.db")
     # Deaktiviert die Signalverfolgung, um Overhead zu vermeiden.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Bestimmt, ob Logs in die Standardausgabe geschrieben werden sollen.
