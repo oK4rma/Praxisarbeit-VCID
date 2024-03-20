@@ -64,13 +64,15 @@
                                     </div>
                                 {% endif %}
                                 <!-- Verwendet das importierte 'vehiclerender'-Makro für jedes Fahrzeug. -->
-                                  {% if vehicle.id == 1 %}
-                                          VW Golf
-                                      {% elif vehicle.id == 2 %}
-                                          VW Passat
-                                      {% elif vehicle.id == 3 %}
-                                          VW Bus
-                                      {% endif %}
+                                   <div class="vehicle-name">
+                                       {% if vehicle.id == 1 %}
+                                           <h2>VW Golf</h2>
+                                       {% elif vehicle.id == 2 %}
+                                           <h2>VW Passat</h2>
+                                       {% elif vehicle.id == 3 %}
+                                           <h2>VW Bus</h2>
+                                       {% endif %}
+                                   </div>
                                 {{ vehiclerender.vehicle(vehicle.id, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
                             </div>
                         {% endfor %}
