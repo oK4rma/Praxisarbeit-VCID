@@ -71,7 +71,7 @@
                                    {% elif vehicle.id == 3 %}
                                        {% set vehicle_name = "VW Bus" %}
                                    {% endif %}
-                                 {{ vehiclerender.vehicle(vehicle_name, vehicle.id, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
+                                 {{ vehiclerender.vehicle(vehicle_name, vehicle.is_reserved(activeDate), vehicle.info, activeDate, form) }}
                             </div>
                         {% endfor %}
                     </div>
