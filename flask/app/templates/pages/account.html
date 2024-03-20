@@ -46,8 +46,17 @@
                                     <th style="color: #13250e;">{{ loop.index }}</th>
                                     <td style="color: #13250e;">{{ res.user.username }}</td>
                                     <td style="color: #13250e;">{{ res.date }}</td>
-                                    <td style="color: #13250e;">{{ res.rental_vehicle.id }}</td>
-                                </tr>
+                                    <td style="color: #13250e;">
+                                        {% if res.rental_vehicle.id == 1 %}
+                                            VW Golf
+                                        {% elif res.rental_vehicle.id == 2 %}
+                                            VW Bus
+                                        {% elif res.rental_vehicle.id == 3 %}
+                                            VW Passat
+                                        {% else %}
+                                            Unknown Vehicle
+                                        {% endif %}
+                                    </td>
                             {% endfor %}
                             </tbody>
                         </table>
