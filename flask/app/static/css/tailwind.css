@@ -1250,6 +1250,11 @@ html {
     overflow-x: auto;
 }
 
+.vehicle-name {
+    text-align: center;
+    font-size: 24px; /* Oder die gewünschte Größe */
+}
+
 .stat {
     display: inline-grid;
     width: 100%;
