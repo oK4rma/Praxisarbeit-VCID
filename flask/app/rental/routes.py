@@ -172,7 +172,7 @@ def free(vehicle, day):
 def account():
     # Prüft ob der User "Administrator" angemeldet ist.
     if current_user.username != "administrator":
-        print("Benutzer ist nict Administrator")
+        print("Benutzer ist nicht Administrator")
     # Ruft alle Fahrzeuge ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
@@ -197,7 +197,7 @@ def account():
         reservations = db.session.scalars(
             select(Reservation)
             .filter(Reservation.date <= today)
-            .join(workplacedesk)
+            .join(rentalvehicle)
             .join(User)
     ).all()   
     # Berechnet den Gesamterlös.
