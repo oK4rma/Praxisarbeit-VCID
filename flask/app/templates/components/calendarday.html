@@ -1,5 +1,5 @@
 <!-- Beginn des Makros 'calendarday' zur Darstellung eines Kalendertags. -->
-{% macro calendarday(date, today, currentDay=False, currentMonth=False ) -%}
+{% macro calendarday(date, today, currentDay=False, currentMonth=False, reserved=False) -%}
     <!-- Initialisiert eine Variable, um zu prüfen, ob es sich um den heutigen Tag handelt. -->
     {% set isToday = False %}
     {% if date.day == today.day %}
@@ -22,7 +22,11 @@
         <!-- Setzt die Ringfarbe, wenn es sich um den ausgewählten Tag handelt. -->
         {% set ringbg = "bg-info" %}
     {% endif %}
-     <!-- Erzeugt einen anklickbaren Tag, wenn das Datum heute oder in der Zukunft liegt. -->
+    {% if reserved %}
+        <!-- Setzt die Ringfarbe für reservierte Tage. -->
+        {% set ringbg = "bg-red-500" %}
+    {% endif %}
+    <!-- Erzeugt einen anklickbaren Tag, wenn das Datum heute oder in der Zukunft liegt. -->
     {% if date >= today %}
         <a type="button"
            href="{{ url_for('rental.date', date=date) }}"
