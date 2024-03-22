@@ -81,7 +81,6 @@ def load_user(id):
 # Modell für ein Mietfahrzeug.
 class rentalvehicle(db.Model, CollectionMixin):
     id = db.Column(db.Integer, primary_key=True)
-    price = db.Column(db.Float)
     info = db.Column(db.String(256))
     reservations = db.relationship(
         "Reservation", backref="rental_vehicle", lazy="dynamic"
@@ -109,7 +108,6 @@ class rentalvehicle(db.Model, CollectionMixin):
     def to_dict(self):
         data = {
             "id": self.id,
-            "price": self.price,
             "info": self.info,
             "_links": {
                 "self": url_for("api.get_vehicle", id=self.id),
