@@ -1,4 +1,4 @@
-import datetime
+timport datetime
 from flask import flash, redirect, render_template, url_for, abort
 from flask_login import current_user, login_required
 from sqlalchemy import select
@@ -172,7 +172,7 @@ def free(vehicle, day):
 def account():
     # Prüft ob der User "Administrator" angemeldet ist.
     if current_user.username != "administrator":
-        print("User is not admin")
+        print("Benutzer ist nict Administrator")
     # Ruft alle Fahrzeuge ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
