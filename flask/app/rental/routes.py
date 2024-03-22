@@ -27,6 +27,9 @@ def index():
     # Ruft alle verfügbaren Fahrzeuge aus der Datenbank ab.
     vehicles = db.session.scalars(select(rentalvehicle))
 
+    # Ruft alle reservierten Tage für alle Fahrzeuge ab
+    reserved_dates = Reservation.query.with_entities(Reservation.date).all()
+    
     # Gibt die Hauptseite mit den entsprechenden Daten für das Rendering zurück.
     return render_template(
         "pages/index.html",
@@ -38,6 +41,8 @@ def index():
         # Ruft Kalendertage für den aktuellen Monat ab.
         weeks=Calendar.get_days(month, year),
         vehicles=vehicles,
+        # Neue Variable für reservierte Tage
+        reserved_dates=reserved_dates,
         form=form,
     )
 
