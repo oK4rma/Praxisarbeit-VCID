@@ -58,7 +58,7 @@ class TestUser:
                 "username": "toby",
                 "password": "?!4-K4li-L1nux-4?!",
                 "passwordRepeat": "?!4-K4li-L1nux-4?!",
-                "email": "test@test.com",
+                "email": "test@test.ch",
             },
         )
 
