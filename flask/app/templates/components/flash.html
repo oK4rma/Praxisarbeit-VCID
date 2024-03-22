@@ -1,0 +1,34 @@
+<!-- Speichert alle geflashten Nachrichten mit ihren Kategorien in 'messages'. -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+<!-- Prüft, ob es geflashte Nachrichten gibt. -->
+{% if messages %}
+    <!-- Container für Nachrichten mit Positionierung. -->
+    <div class="toast toast-top toast-end top-20 z-50">
+        <!-- Iteriert über jede Nachricht und ihre Kategorie. -->
+        {% for category, message in messages %}
+        <!-- Setzt die CSS-Klasse basierend auf der Nachrichtenkategorie. 'info' für alle außer 'error'. -->
+            <div class="alert alert-{{ 'info' if not category == 'error' else 'error' }} p-4">
+                <!-- SVG-Icon zur visuellen Repräsentation der Nachricht. -->
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        class="stroke-current shrink-0 w-6 h-6"
+                >
+                    <!-- SVG-Pfad für das Icon. -->
+                    <path
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             stroke-width="2"
+                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    >
+                    </path>
+                </svg>
+                <!-- Zeigt den Nachrichtentext an. -->
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+    </div>
+<!-- Beendet den 'with'-Block und gibt die Ressourcen frei. -->
+{% endif %} 
+{% endwith %}

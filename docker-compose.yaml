@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  # Baut den Flask-Service basierend auf dem Dockerfile im Verzeichnis ./flask.
+  flask:
+    build: ./flask
+    # Bindet das lokale Verzeichnis ./flask an das Arbeitsverzeichnis /app im Container.
+    volumes:
+      - ./flask:/app
+    depends_on:
+      - db
+      
+# Baut den nginx-Service basierend auf dem Dockerfile im Verzeichnis ./nginx.
+  nginx:
+    build: ./nginx
+    ports:
+      # Leitet Anfragen auf Port 80 des Hosts an Port 80 im Container weiter.
+      - "80:80"
+      # Leitet Anfragen auf Port 443 des Hosts an Port 443 im Container weiter.
+      - "443:443"
+    # Stellt sicher, dass der Flask-Service gestartet ist, bevor der nginx-Service gestartet wird.
+    depends_on:
+      - flask
+
+  db:
+    # Baut den Datenbank-Service basierend auf dem Dockerfile im Verzeichnis ./postgresql.
+    build: ./postgresql
+    # Persistiert Datenbankdaten im lokalen Verzeichnis ./postgresql/data.
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    environment:
+    # Setzt den Namen der zu erstellenden Datenbank.
+      - POSTGRES_DB=sqlcontainer
+      # Setzt den Benutzernamen für den Datenbankzugriff.
+      - POSTGRES_USER=postgres
+      # Setzt das Passwort für den Datenbankzugriff.
+      - POSTGRES_PASSWORD=kali
+      
+# Definiert ein benanntes Volume zur Datenspeicherung.
+volumes:
+  postgres_data:
