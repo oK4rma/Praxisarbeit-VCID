@@ -20,16 +20,17 @@
         {% for week in weeks %}
             {% for entry in week %}
                 <!-- Prüft, ob der Tag der aktive Tag ist und ob er im aktuellen Monat liegt. -->
-                {% set isCurrentDay = false %}
+                {% set isCurrentDay = False %}
                 {% if entry.day == activeDate.day %}
                     {% set isCurrentDay = True %}
                 {% endif %}
                 {% set isCurrentMonth = False %}
                 {% if entry.month == month %}
-                    {% set isCurrentMonth = true %}
+                    {% set isCurrentMonth = True %}
                 {% endif %}
                 <!-- Ruft die Komponente für jeden Tag auf, mit Überprüfung des aktuellen Tages/Monats. -->
-                {{ calendarday.calendarday(entry, today, currentDay=isCurrentDay, currentMonth=isCurrentMonth) }}
+                {% set isReserved = (year, month, entry.day) in reserved_dates %}
+                {{ calendarday.calendarday(entry, today, currentDay=isCurrentDay, currentMonth=isCurrentMonth, reserved=isReserved) }}
             {% endfor %}
         {% endfor %}
     </div>
@@ -41,7 +42,6 @@
     <!-- Gibt Anweisungen zur Reservierung und Informationen zum Monatsende. -->
     <div class="mt-4 flex flex-col gap-2 items-center">
         <p style="color: #13250e;" class="text-sm text-center">
-
             Select which day you would like to reserve. Only possible for the current month. At the end of the month you
             will see the total costs and you can make reservations for the next month
         </p>
