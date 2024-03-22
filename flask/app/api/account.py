@@ -30,8 +30,6 @@ def get_account():
         .join(User)
     ).all()
 
-     # Berechnet den Gesamterlös aus den Reservierungen.
-    revenue = sum(map(lambda x: x.rental_vehicle.price, reservations))
     # Gibt die Daten als JSON zurück.
     return jsonify(
         {
