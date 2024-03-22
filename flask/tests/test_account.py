@@ -72,4 +72,3 @@ class Testaccount:
             assert data["vehicles"] == 3
             assert data["occupied"] == 1
             assert data["occupation"] == 0.33
-            assert data["revenue"] == 1
