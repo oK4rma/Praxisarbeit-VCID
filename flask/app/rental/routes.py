@@ -1,12 +1,12 @@
-import datetime
 from flask import flash, redirect, render_template, url_for, abort
 from flask_login import current_user, login_required
 from sqlalchemy import select
+from app.models import workplacedesk, Reservation, User
 from app import db
-from app.models import rentalvehicle, Reservation, User
-from app.rental import bp
-from app.rental.calendar import rentalCalendar
-from app.rental.forms import BaseForm
+from app.workplace import bp
+from app.workplace.calendar import workplaceCalendar
+from app.workplace.forms import BaseForm
+import datetime
 
 # Erstellt eine Instanz von rentalCalendar für die Verwendung in den Routen.
 Calendar = rentalCalendar()
