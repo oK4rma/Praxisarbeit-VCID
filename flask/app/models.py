@@ -108,7 +108,6 @@ class rentalvehicle(db.Model, CollectionMixin):
     def to_dict(self):
         data = {
             "id": self.id,
-            "price": self.price,
             "info": self.info,
             "_links": {
                 "self": url_for("api.get_vehicle", id=self.id),
