@@ -195,9 +195,6 @@ def account():
             .join(rentalvehicle)
             .join(User)
         ).all()
-        
-    # Berechnet den Gesamterlös.
-    revenue = sum(map(lambda x: x.rental_vehicle.price, reservations))
 
     # Gibt die Kontoseite mit den gesammelten Daten zurück.
     return render_template(
@@ -207,5 +204,4 @@ def account():
         occupied=occupied,
         occupation=occupation,
         reservations=reservations,
-        revenue=revenue,
     )
