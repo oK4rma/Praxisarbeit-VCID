@@ -81,7 +81,6 @@ def date(date):
         form=form,
     )
 
-
 @bp.route("/reserve/<vehicle>/<day>", methods=["POST"])
 @login_required
 # Ermöglicht es, ein Fahrzeug für einen bestimmten Tag zu reservieren.
@@ -118,6 +117,11 @@ def reserve(vehicle, day):
             )
             return redirect(url_for("rental.index"))
 
+        # Überprüft, ob der Tag im Kalender als reserviert markiert ist.
+        if Calendar.is_reserved(dayDate):
+            flash("Cannot reserve vehicles. The selected date is already reserved.", "error")
+            return redirect(url_for("rental.index"))
+
         # Führt die Reservierung durch.
         vehicle.reserve(dayDate, current_user)
         flash(f"vehicles {vehicle} reserved!")
@@ -126,7 +130,6 @@ def reserve(vehicle, day):
         return redirect(url_for("rental.index"))
     else:
         return redirect(url_for("rental.index"))
-
 
 @bp.route("/free/<vehicle>/<day>", methods=["POST"])
 @login_required
