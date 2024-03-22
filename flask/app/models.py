@@ -81,7 +81,6 @@ def load_user(id):
 # Modell für ein Mietfahrzeug.
 class rentalvehicle(db.Model, CollectionMixin):
     id = db.Column(db.Integer, primary_key=True)
-    price = db.Column(db.Float)
     info = db.Column(db.String(256))
     reservations = db.relationship(
         "Reservation", backref="rental_vehicle", lazy="dynamic"
