@@ -13,6 +13,7 @@ CREATE TABLE "user"
 CREATE TABLE rentalvehicle 
 (
     id    SERIAL PRIMARY KEY,
+    price FLOAT NOT NULL,
     info  VARCHAR(256)
 );
 
