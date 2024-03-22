@@ -20,7 +20,7 @@ def testApp():
 
         # Erstellt einen Testbenutzer.
         u = User(username="toby")
-        u.set_password("kali")
+        u.set_password("?!4-K4li-L1nux-4?!")
         db.session.add(u)
         db.session.commit()
 
@@ -50,7 +50,7 @@ def client(testApp):
 @pytest.fixture
 def token(client):
     # Holt einen Authentifizierungstoken für den Testbenutzer.
-    credentials = ("toby", "kali")
+    credentials = ("toby", "?!4-K4li-L1nux-4?!")
     tokenResponse = client.post("api/tokens", auth=credentials)
     token = tokenResponse.json["token"]
     return token
