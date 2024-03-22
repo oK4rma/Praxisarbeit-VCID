@@ -6,6 +6,7 @@
     <div class="flex w-full flex-grow">
         <!-- Kartencontainer mit weißem Hintergrund und Abstand zwischen den Elementen. -->
         <div class="flex flex-col gap-20 items-center flex-grow card bg-white rounded-box px-8 py-10">
+            <div class="card-bod">
             <!-- Container für Statistiken mit spezifischer Hintergrundfarbe. -->
             <div style="background-color: #e1eae1;" class="stats">
                 <!-- Anzeige der Gesamtanzahl der Reservierungen. -->
@@ -19,7 +20,9 @@
                     <div style="color: #13250e;" class="stat-value">{{ occupation }} %</div>
                     <div style="color: #13250e;" class="stat-desc">{{ occupied }} / total {{ vehicles }} vehicles</div>
                 </div>
+                 </div>
             </div>
+            <div class="card-bod">
             <!-- Zweiter Statistik-Container für eine detaillierte Auflistung der Reservierungen. -->
             <div style="background-color: #e1eae1;" class="stats">
                 <div class="stat place-items-center">
@@ -54,6 +57,7 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
