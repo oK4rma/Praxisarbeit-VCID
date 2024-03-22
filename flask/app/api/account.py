@@ -11,6 +11,9 @@ from app.models import Reservation, rentalvehicle, User
 # Stellt sicher, dass der Benutzer authentifiziert sein muss, um auf diese Route zuzugreifen.
 @token_auth.login_required
 def get_account():
+       # Prüft ob der User "Administrator" angemeldet ist.
+       if current_user.username != "admin":
+        print("Benutzer ist nicht admin")
        # Ruft alle Fahrzeuge aus der Datenbank ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
