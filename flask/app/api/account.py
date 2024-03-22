@@ -11,9 +11,6 @@ from app.models import Reservation, rentalvehicle, User
 # Stellt sicher, dass der Benutzer authentifiziert sein muss, um auf diese Route zuzugreifen.
 @token_auth.login_required
 def get_account():
-       # Prüft ob der User "Administrator" angemeldet ist.
-       if current_user.username != "admin":
-               print("Benutzer ist nicht admin")
        # Ruft alle Fahrzeuge aus der Datenbank ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
@@ -25,8 +22,6 @@ def get_account():
     # Berechnet die Belegungsrate
     occupation = round((occupied / vehicleCount), 2)
 
-    # Ruft alle Reservierungen ab, die bis heute erfolgt sind, inklusive Verknüpfungen zu Fahrzeugen und Benutzern.
-    if current_user.username != "admin":
         # Ruft alle Reservierungen bis zum heutigen Tag ab.
         reservations = db.session.scalars(
             select(Reservation)
@@ -34,13 +29,6 @@ def get_account():
             .join(rentalvehicle)
             .join(User)
         ).all()
-    else:
-        reservations = db.session.scalars(
-            select(Reservation)
-            .filter(Reservation.date <= today)
-            .join(rentalvehicle)
-            .join(User)
-    ).all()   
 
      # Berechnet den Gesamterlös aus den Reservierungen.
     revenue = sum(map(lambda x: x.rental_vehicle.price, reservations))
