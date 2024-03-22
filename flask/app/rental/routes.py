@@ -171,8 +171,8 @@ def free(vehicle, day):
 # Zeigt die Kontoinformationsseite mit Übersicht der Fahrzeugreservierungen an.
 def account():
     # Prüft ob der User "Administrator" angemeldet ist.
-    if current_user.username != "administrator":
-        print("Benutzer ist nicht Administrator")
+    if current_user.username != "admin":
+        print("Benutzer ist nicht admin")
     # Ruft alle Fahrzeuge ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
@@ -185,7 +185,7 @@ def account():
     occupation = round((occupied / vehicleCount) * 100, 2)
 
     # Prüft ob der Benutzer "Administrator" ist, filtert für den Benutzer.
-    if current_user.username != "administrator":
+    if current_user.username != "admin":
         # Ruft alle Reservierungen bis zum heutigen Tag ab.
         reservations = db.session.scalars(
             select(Reservation)
