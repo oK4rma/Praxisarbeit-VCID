@@ -31,7 +31,7 @@ class TestUser:
     def test_password_hashing(self, testApp):
         u = User(username="toby")
 
-        u.set_password("kali")
+        u.set_password("?!4-K4li-L1nux-4?!")
 
         # Verifiziert, dass das Passwort korrekt gehasht wurde.
         assert not u.check_password("khali")
@@ -41,7 +41,7 @@ class TestUser:
     # Testet das Verhalten des Registrierungsformulars bei fehlenden Daten.
     def test_required_form(self, client, testApp):
         response = client.post(
-            "/auth/register", data={"username": "flask", "password": "kalii"}
+            "/auth/register", data={"username": "toby", "password": "?!4-K4li-L1nux-4?!"}
         )
         assert response.status_code == 200
         # Überprüft, ob eine Fehlermeldung für fehlende Felder angezeigt wird.
@@ -55,9 +55,9 @@ class TestUser:
         response = client.post(
             "/auth/register",
             data={
-                "username": "flask",
-                "password": "kalii",
-                "passwordRepeat": "kalii",
+                "username": "toby",
+                "password": "?!4-K4li-L1nux-4?!",
+                "passwordRepeat": "?!4-K4li-L1nux-4?!",
                 "email": "test@test.com",
             },
         )
@@ -69,4 +69,4 @@ class TestUser:
 
         # Verifiziert, dass der Benutzer nach der erfolgreichen Registrierung existiert.
         with testApp.app_context():
-            assert User.query.filter_by(username="flask").first() is not None
+            assert User.query.filter_by(username="toby").first() is not None
