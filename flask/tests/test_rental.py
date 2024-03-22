@@ -43,7 +43,7 @@ def testApp():
         db.create_all()
         # Initialisiert Standard-Fahrzeuge für die Tests.
         for x in range(1, 4):
-            vehicle = rentalvehicle(id=x, price=1, info=f"vehicles {x}")
+            vehicle = rentalvehicle(id=x, info=f"vehicles {x}")
             db.session.add(vehicle)
         db.session.commit()
 
