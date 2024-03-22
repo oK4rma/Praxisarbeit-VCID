@@ -34,8 +34,8 @@ class TestUser:
         u.set_password("?!4-K4li-L1nux-4?!")
 
         # Verifiziert, dass das Passwort korrekt gehasht wurde.
-        assert not u.check_password("khali")
-        assert u.check_password("kaali")
+        assert not u.check_password("!4-K4li-L1nux-4?")
+        assert u.check_password("?4-K4li-L1nux-4!")
 
     @pytest.mark.dependency(depends=["TestUser::test_password_hashing"])
     # Testet das Verhalten des Registrierungsformulars bei fehlenden Daten.
@@ -49,7 +49,7 @@ class TestUser:
 
         # Stellt sicher, dass kein Benutzer erstellt wurde, wenn das Formular unvollständig ist.
         with testApp.app_context():
-            assert User.query.filter_by(username="flask").first() is None
+            assert User.query.filter_by(username="toby").first() is None
 
         # Testet die erfolgreiche Registrierung eines neuen Benutzers.
         response = client.post(
