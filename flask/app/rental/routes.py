@@ -170,6 +170,9 @@ def free(vehicle, day):
 @login_required
 # Zeigt die Kontoinformationsseite mit Übersicht der Fahrzeugreservierungen an.
 def account():
+    # Prüft ob der User "Administrator" angemeldet ist.
+    if current_user.username != "administrator":
+        print("User is not admin")
     # Ruft alle Fahrzeuge ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
@@ -181,14 +184,22 @@ def account():
     # Berechnet die Belegungsrate.
     occupation = round((occupied / vehicleCount) * 100, 2)
 
-    # Ruft alle Reservierungen bis zum heutigen Tag ab.
-    reservations = db.session.scalars(
-        select(Reservation)
-        .filter(Reservation.date <= today)
-        .join(rentalvehicle)
-        .join(User)
-    ).all()
-
+    # Prüft ob der Benutzer "Administrator" ist, filtert für den Benutzer.
+    if current_user.username != "administrator":
+        # Ruft alle Reservierungen bis zum heutigen Tag ab.
+        reservations = db.session.scalars(
+            select(Reservation)
+            .filter(Reservation.date <= today)
+            .join(rentalvehicle)
+            .join(User)
+        ).all()
+    else:
+        reservations = db.session.scalars(
+            select(Reservation)
+            .filter(Reservation.date <= today)
+            .join(workplacedesk)
+            .join(User)
+    ).all()   
     # Berechnet den Gesamterlös.
     revenue = sum(map(lambda x: x.rental_vehicle.price, reservations))
 
