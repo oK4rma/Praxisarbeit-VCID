@@ -1,0 +1,61 @@
+<!-- Erbt von der Basis-Template-Datei 'base.html'. -->
+{% extends "base.html" %}
+<!-- Beginn des Inhaltsblocks, der in 'base.html' definiert ist. -->
+{% block content %}
+    <!-- Flex-Container, der sich über die volle Breite erstreckt und wächst, um den verfügbaren Platz auszufüllen. -->
+    <div class="flex w-full flex-grow">
+         <!-- Vertikaler Flex-Container für die Inhaltskarten mit weißem Hintergrund und einem Abstand zwischen ihnen. -->
+        <div class="flex flex-col gap-20 items-center flex-grow card bg-white rounded-box px-8 py-10">
+            <!-- Container für das Login-Formular mit spezifischer Hintergrundfarbe und Schatteneffekt. -->
+            <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                <div class="card-body">
+                    <!-- Überschrift für den Login-Bereich. -->
+                    <h1 style="color: #13250e;" class="text-5xl font-bold text-center">Login</h1>
+                     <p style="color: #13250e;" class="py-6">Please Login to use the application. As a logged in user you can reserve a
+                                company vehicles. If you don't have an account yet, register below</p>
+                    <!-- Das Login-Formular, das beim Absenden keine Validierung durchführt (novalidate). -->
+                    <form action="" method="post" novalidate>
+                        <!-- Einbettung von CSRF-Token und anderen verborgenen Eingaben. -->
+                        {{ form.hidden_tag() }}
+                        <!-- Benutzername-Eingabefeld mit dynamischer Fehleranzeige. -->
+                        <div style="color: #13250e;" class="form-control">
+                            {{ form.username.label }}
+                            {{ form.username(size=32) }}
+                            {% for error in form.username.errors %}
+                                <label class="label">
+                                    <span class="text-red-400 label-text-alt">{{ error }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- Passwort-Eingabefeld mit dynamischer Fehleranzeige. -->
+                        <div style="color: #13250e;" class="form-control mt-3">
+                            {{ form.password.label }}
+                            {{ form.password(size=32) }}
+                            {% for error in form.password.errors %}
+                                <label class="label">
+                                    <span class="text-red-400 label-text-alt">{{ error }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <!-- Absenden-Button für das Formular. -->
+                        <div class="form-control mt-6">{{ form.submit() }}</div>
+                    </form>
+                </div>
+            </div>
+            <!-- Weitere Karte mit Informationen zur Account-Erstellung. -->
+            <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                <div style="background-color: #e1eae1;" class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                    <div class="text-center lg:text-left">
+                        <div style="color: #13250e;" class="card-body">
+                            <!-- Überschrift und Beschreibung für Nutzer ohne Login. -->
+                            <h1 class="text-5xl font-bold text-center">No Login?</h1>
+                            <p class="py-6">If you don't have a login, please register below. So you can log in.</p>
+                            <!-- Link zur Registrierungsseite. -->
+                            <a class="btn btn-secondary mt-r text-sm" href="{{ url_for("auth.register") }}">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

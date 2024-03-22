@@ -1,0 +1,46 @@
+<!-- Hauptnavigationsleiste mit weißem Hintergrund. -->
+<div class="navbar" style="background-color: #ffffff;">
+    <!-- Flex-Container für die Ausrichtung des Inhalts. -->
+    <div class="flex-1">
+        <!-- Stil für den Firmennamen oder Logo-Link. -->
+        <!-- Link zur Hauptseite. -->
+        <a
+                class="btn btn-ghost normal-case text-xl"
+                href="{{ url_for('rental.index') }}"
+        <!-- Text des Links. -->
+        Company Vehicles</a>
+    </div>
+    <!-- Dropdown-Menü für weitere Optionen. -->
+    <div style="color: #13250e;" class="flex-none dropdown">
+        <!-- Dropdown-Menüknopf. -->
+        <button class="btn btn-ghost normal-case text-xl dropdown-toggle">Menu</button>
+        <!-- Dropdown-Menüinhalte. -->
+        <ul class="dropdown-menu">
+            <!-- Überprüft, ob der aktuelle Benutzer nicht angemeldet ist. -->
+            {% if current_user.is_anonymous %}
+                <!-- Zeigt Login-Option für anonyme Benutzer. -->
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            <!-- Für angemeldete Benutzer. -->
+            {% else %}
+                <!-- Link zur Hauptseite -->
+                <li><a href="{{ url_for('rental.index') }}">Home</a></li>
+                <!-- Link zum Benutzerkonto. -->
+                <li><a href="{{ url_for('rental.account') }}">Account</a></li>
+                <!-- Logout-Option. -->
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<!-- Fußzeilenbereich der Webseite. -->
+<footer class="footer">
+    <!-- Container für den Inhalt der Fußzeile. -->
+    <div class="footer-content">
+        <!-- Linker Teil der Fußzeile: Name des Erstellers. -->
+        <div class="text-left mx-auto mx-4">Tobyas Steiner</div>
+        <!-- Mittlerer Teil der Fußzeile: Firmenname. -->
+        <div class="text-center flex-grow">Glas Trösch AG</div>
+        <!-- Rechter Teil der Fußzeile: Datum. -->
+        <div class="text-right mx-auto mx-4">Praxisarbeit VCID</div>
+    </div>
+</footer>

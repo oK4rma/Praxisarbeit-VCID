@@ -1,0 +1,38 @@
+<!-- Beginn des Makros 'calendarday' zur Darstellung eines Kalendertags. -->
+{% macro calendarday(date, today, currentDay=False, currentMonth=False ) -%}
+    <!-- Initialisiert eine Variable, um zu prüfen, ob es sich um den heutigen Tag handelt. -->
+    {% set isToday = False %}
+    {% if date.day == today.day %}
+        <!-- Setzt 'isToday' auf True, wenn das Datum dem heutigen Tag entspricht. -->
+        {% set isToday = True %}
+    {% endif %}
+    <!-- Standard-Hintergrundfarbe für Tage des aktuellen Monats. -->
+    {% set bg = "bg-base-300" %}
+    {% if not currentMonth or date < today %}
+        <!-- Ändert die Hintergrundfarbe für Tage außerhalb des aktuellen Monats oder in der Vergangenheit. -->                               
+        {% set bg = "bg-base-100" %}
+    {% endif %}
+    <!-- Initialisiert eine Variable für die Ringfarbe um den Tag. -->
+    {% set ringbg = "" %}
+    {% if isToday %}
+        <!-- Setzt die Ringfarbe für den heutigen Tag. -->
+        {% set ringbg = "bg-neutral-content" %}
+    {% endif %}
+    {% if currentDay %}
+        <!-- Setzt die Ringfarbe, wenn es sich um den ausgewählten Tag handelt. -->
+        {% set ringbg = "bg-info" %}
+    {% endif %}
+     <!-- Erzeugt einen anklickbaren Tag, wenn das Datum heute oder in der Zukunft liegt. -->
+    {% if date >= today %}
+        <a type="button"
+           href="{{ url_for('rental.date', date=date) }}"
+           class="{{ bg }} px-2 py-1.5 {{ 'text-gray-400' if not currentDay and not isToday else 'text-white' }} hover:bg-neutral focus:z-10">
+            <time class="mx-auto flex h-10 w-10 items-center justify-center rounded-full {{ ringbg }}">{{ date.day }}</time>
+        </a>
+    {% else %}
+        <!-- Erzeugt einen nicht-anklickbaren Tag, wenn das Datum in der Vergangenheit liegt. -->
+        <button type="button" class="{{ bg }} px-2 py-1.5 text-gray-400">
+            <time class="mx-auto flex h-10 w-10 items-center justify-center rounded-full">{{ date.day }}</time>
+        </button>
+    {% endif %}
+{%- endmacro %}
