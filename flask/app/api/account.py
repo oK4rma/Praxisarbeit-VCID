@@ -1,7 +1,6 @@
 import datetime
 from flask import jsonify
 from sqlalchemy import select
-
 from app import db
 from app.api import bp
 from app.api.auth import token_auth
