@@ -13,7 +13,7 @@ from app.models import Reservation, rentalvehicle, User
 def get_account():
        # Prüft ob der User "Administrator" angemeldet ist.
        if current_user.username != "admin":
-        print("Benutzer ist nicht admin")
+               print("Benutzer ist nicht admin")
        # Ruft alle Fahrzeuge aus der Datenbank ab.
     vehicles = db.session.scalars(select(rentalvehicle)).all()
     # Zählt die Fahrzeuge.
