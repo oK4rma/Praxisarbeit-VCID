@@ -80,7 +80,7 @@ def create_app(config=Config):
             if not db.session.execute(select(models.rentalvehicle)).first():
                 # Create default rental vehicles
                 for x in range(1, 4):
-                    vehicle = models.rentalvehicle(id=x, info=f"vehicles {x}")
+                    vehicle = models.rentalvehicle(id=x, price=0, info=f"vehicles {x}")
                     db.session.add(vehicle)
                 db.session.commit()
     # Gibt die konfigurierte Flask-Anwendung zurück.
