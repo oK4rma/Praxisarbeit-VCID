@@ -23,12 +23,21 @@ def get_account():
     occupation = round((occupied / vehicleCount), 2)
 
     # Ruft alle Reservierungen ab, die bis heute erfolgt sind, inklusive Verknüpfungen zu Fahrzeugen und Benutzern.
-    reservations = db.session.scalars(
-        select(Reservation)
-        .filter(Reservation.date <= today)
-        .join(rentalvehicle)
-        .join(User)
-    ).all()
+    if current_user.username != "admin":
+        # Ruft alle Reservierungen bis zum heutigen Tag ab.
+        reservations = db.session.scalars(
+            select(Reservation)
+            .filter(Reservation.date <= today)
+            .join(rentalvehicle)
+            .join(User)
+        ).all()
+    else:
+        reservations = db.session.scalars(
+            select(Reservation)
+            .filter(Reservation.date <= today)
+            .join(rentalvehicle)
+            .join(User)
+    ).all()   
 
      # Berechnet den Gesamterlös aus den Reservierungen.
     revenue = sum(map(lambda x: x.rental_vehicle.price, reservations))
