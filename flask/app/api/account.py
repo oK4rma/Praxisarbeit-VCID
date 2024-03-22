@@ -36,6 +36,5 @@ def get_account():
             "vehicles": vehicleCount,
             "occupied": occupied,
             "occupation": occupation,
-            "revenue": revenue,
         }
     )
