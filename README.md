@@ -6,7 +6,7 @@
   - [Warum dieses Projekt?](#Warum-dieses-Projekt?)
   - [Ziel](#ziel)
   - [Genauer Auftrag](#Genauer-Auftrag)
-  - [Themeninhalte](#Themeninhalte)
+  - [Themeninhalt](#Themeninhalt)
 - [Erste Schritte](#Erste-Schritte)
   - [Voraussetzung](#Voraussetzung)
   - [Installation](#Installation)
