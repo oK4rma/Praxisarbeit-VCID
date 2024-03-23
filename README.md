@@ -2,8 +2,11 @@
 
 Themeninhalt
 • Datenbanken und Webentwicklung (DBWE)
+
 • IT-Architektur (ITAR)
+
 • Virtualisierung und Cloud Computing (VICC)
+
 
 ## Warum dieses Projekt?
 
