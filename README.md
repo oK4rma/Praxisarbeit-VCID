@@ -3,8 +3,7 @@
 ## Inhaltsverzeichnis
 
 • [Auftrag](#Auftrag)
-
-  •• Warum dieses Projekt?
+  • [Warum dieses Projekt?](#warum-dieses-projekt?)
   
   •• Ziel
   
