@@ -1,110 +1,75 @@
-# IFA VICC - Parking App
+# IFA VCID - Comapny Vehicles App
 
-Flask Application for module XXXX
+Subject content
+• Datenbanken und Webentwicklung (DBWE)
+• IT-Architektur (ITAR)
+• Virtualisierung und Cloud Computing (VICC)
 
-![Project Screenshot](doc/screenshot.png) <!-- If applicable -->
+## Why this Project?
 
-## Table of Contents
+As part of this qualification-relevant practical work, what has been learned is intended to be used in a practical context application come.
 
-- [About the Project](#about-the-project)
-  - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Testing](#testing)
+### Exact work order
 
-## About the Project
-
-Application implementing basic flask features. These are given by the module requirements. A list of implemented features can be found below
-
-### Features
-
-- Flask App
-- Database Setup (Sqlite and Postgres with SqlAlchemy)
-- Datebase Migratons
-- User Login / Registration
-- Parking Spot Reservation in the current Month
-- Unit and Integration Testing (local and via Github actions)
-- Docker setup and deployement to XXXXX
+Your practical work should deliver the following results:
+• An executable application with Flask and a database
+• A short documentation on how to use the application
+• A comprehensible description of the architecture of the software, especially if from the
+  Technologies and procedures are deviated from teaching.
+• A platform on which the application is deployed in the cloud
+• Documentation of the selected platform(s), technology(s), architecture and solution approaches
+  as well as reflecting on why this was chosen, what the benefits and potential risks are
+  brings.
+• Reflection on scalability, high availability, porting and possible challenges
+  operational operations.
 
 ## Getting Started
 
 ### Prerequisites
 
-You should have python installed and a running docker setup to work with postgres
+You should have a virtual machine Ubuntu Linux.
 
 ### Installation
 
-Follow these steps to set up and run the Flask application in a virtual environment:
+Please follow these steps so that everything works:
 
-1. **Clone the Repository:**
-
-   ```bash
-   git clone git@github.com:thywidi/ifa-vicc.git
+1. **Install git
+  ```bash
+   sudo apt install -y git
    ```
 
-2. **Navigate to the Project Directory:**
+2. **Clone the Repository:**
 
    ```bash
-   cd ifa-vicc
+   git clone https://github.com/oK4rma/Praxisarbeit_VCID_Steiner_Tobyas.git
    ```
 
-3. **Create and Activate a Virtual Environment:**
-
-   On macOS and Linux:
+2. **Navigate to the Directory:**
 
    ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
+   cd Praxisarbeit_VCID_Steiner_Tobyas
    ```
 
-   On winows, use WSL
-
-4. **Install Dependencies:**
+4. **Start application**
 
    ```bash
-   pip install -r requirements.txt
+   docker compose up --build
    ```
+  This will now install all requiremtens from the "requirements.txt" and will start the application with NGINX and GUNICORN
 
-5. **Setup env files:**
+5. **Running application**
 
-   ```bash
-   cp .flaskenv.dist .flaskenv
-   cp .env.dist .env
-   ```
+   Since the application has been completely containerized, the Linux machine can simply be closed when it is hosted. The application continues to run in the background.
 
-6. **Start docker containers(database):**
+6. **Stop application**
 
-   ```bash
-   docker-compose up -d
-   ```
-
-   This will start the whole docker setup. For dev we need only the database, but you can use the setup to test the final deployement
-
-7. **Start dev server:**
-
-   ```bash
-   flask run
-   ```
-
-   To develop we use the dev server with flask
-
-8. **Deactivate the Virtual Environment:**
-
-   When you're done using the app, you can deactivate the virtual environment:
-
-   ```bash
-   deactivate
-   ```
-
-   This will return you to your system's global Python environment.
+    The application can be stpotted using the key combination “CTRL” + “C”.
+ 
 
 ## Testing
 
-Tests can be run locally with pytest
+To do this, the file “boot.sh” must be started. This creates a test environment, installs all requirements and runs the three automated tests. If these have been carried out successfully, the manual tests can also be carried out.
 
 ```bash
-pytest # pyproject.toml specifies tests to be located in /tests
+./boot.sh
 ```
-
-In addition tests are also run via github actions on push to main
