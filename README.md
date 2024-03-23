@@ -1,5 +1,30 @@
 # IFA VCID - Firmenfahrzeuge-App
 
+## Inhaltsverzeichnis
+
+• Auftrag
+  • Warum dieses Projekt?
+  • Ziel
+  • Genauer Auftrag
+  • Themeninhalte
+• Erste SChritte
+  • Voraussetzung
+  • Installation
+  • Genauer Auftrag
+• Testen
+
+## Auftrag
+
+### Warum dieses Projekt?
+
+Um Engpässe und Zeitverzögerungen bei der Nutzung der Firmenfahrzeuge zu vermeiden, wurde eine Webanwendung entwickelt, die es Mitarbeitern ermöglicht, Fahrzeuge zu prüfen, zu reservieren und Nutzungsinformationen zu verfolgen.
+
+### Ziel
+Diese Praxisarbeit zielt darauf ab, eine Webanwendung für die Nutzung der Firmenfahrzeuge zu entwickeln, die Benutzern ermöglicht, sich zu registrieren, Fahrzeuge zu prüfen, zu reservieren und Reservierungen zu stornieren, sowie eine Übersicht über die Fahrzeugnutzung zu erhalten. Die Anwendung wurde mit Flask, Python, Jinja2, Tailwind CSS und Gunicorn entwickelt, ist in einem Docker-Container gehostet und integriert eine PostgreSQL-Datenbank und NGINX für vollständige Containerisierung und Einsatzbereitschaft.
+
+### Genauer Auftrag
+Die Praxisarbeit zielt darauf ab, eine lauffähige Anwendung mit Flask und einer Datenbank zu entwickeln und eine kurze Dokumentation zur Bedienung bereitzustellen. Zudem umfasst sie eine nachvollziehbare Beschreibung der Softwarearchitektur, eine Cloud-basierte Bereitstellung der Anwendung sowie eine umfassende Dokumentation und Reflexion über die gewählten Technologien und Lösungsansätze, einschließlich potenzieller Herausforderungen im operativen Betrieb.
+
 ### Themeninhalt
 
 • Datenbanken und Webentwicklung (DBWE)
@@ -7,15 +32,6 @@
 • IT-Architektur (ITAR)
 
 • Virtualisierung und Cloud Computing (VICC)
-
-
-## Warum dieses Projekt?
-
-Im Rahmen dieser qualifikationsrelevanten Praxisarbeit soll das Erlernte in einen praktischen Kontext zur Anwendung kommen.
-
-### Genauer Arbeitsauftrag
-
-Ihre praktische Arbeit soll die folgenden Ergebnisse erzielen: Eine voll funktionsfähige Anwendung mit Flask und einer Datenbank erstellen. Eine prägnante Dokumentation zur Nutzung der Anwendung bereitstellen. Eine klare Beschreibung der Softwarearchitektur liefern, insbesondere wenn diese von den im Lehrplan behandelten Technologien und Verfahren abweicht. Eine geeignete Cloud-Plattform für die Bereitstellung der Anwendung wählen und dokumentieren, einschließlich der Gründe für die Auswahl sowie der damit verbundenen Vor- und Nachteile. Eine Reflexion über die Skalierbarkeit, Hochverfügbarkeit, Portierung und potenzielle Herausforderungen im operativen Betrieb der Anwendung durchführen.
 
 ## Erste Schritte
 
