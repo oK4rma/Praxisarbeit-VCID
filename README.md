@@ -3,7 +3,7 @@
 ## Inhaltsverzeichnis
 
 - [Auftrag](#Auftrag)
-  - [Warum dieses Projekt?](#Warum-dieses-Projekt?)
+  - [Warum dieses Projekt](#Warum-dieses-Projekt)
   - [Ziel](#ziel)
   - [Genauer Auftrag](#Genauer-Auftrag)
   - [Themeninhalt](#Themeninhalt)
@@ -16,7 +16,7 @@
 
 ## Auftrag
 
-### Warum dieses Projekt?
+### Warum dieses Projekt
 
 Um Engpässe und Zeitverzögerungen bei der Nutzung der Firmenfahrzeuge zu vermeiden, wurde eine Webanwendung entwickelt, die es Mitarbeitern ermöglicht, Fahrzeuge zu prüfen, zu reservieren und Nutzungsinformationen zu verfolgen.
 
