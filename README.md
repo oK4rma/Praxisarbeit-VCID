@@ -1,74 +1,75 @@
-# IFA VCID - Comapny Vehicles App
+# IFA VCID - Firmenfahrzeuge-App
 
-Subject content
+Themeninhalt
 • Datenbanken und Webentwicklung (DBWE)
 • IT-Architektur (ITAR)
 • Virtualisierung und Cloud Computing (VICC)
 
-## Why this Project?
+## Warum dieses Projekt?
 
-As part of this qualification-relevant practical work, what has been learned is intended to be used in a practical context application come.
+Im Rahmen dieser qualifikationsrelevanten Praxisarbeit soll das Erlernte in einen praktischen Kontext zur Anwendung kommen.
 
-### Exact work order
+### Genauer Arbeitsauftrag
 
-Your practical work should deliver the following results:
-• An executable application with Flask and a database
-• A short documentation on how to use the application
-• A comprehensible description of the architecture of the software, especially if from the
-  Technologies and procedures are deviated from teaching.
-• A platform on which the application is deployed in the cloud
-• Documentation of the selected platform(s), technology(s), architecture and solution approaches
-  as well as reflecting on why this was chosen, what the benefits and potential risks are
-  brings.
-• Reflection on scalability, high availability, porting and possible challenges
-  operational operations.
+Ihre praktische Arbeit soll folgende Ergebnisse liefern:
+• Eine ausführbare Anwendung mit Flask und einer Datenbank
+• Eine kurze Dokumentation zur Verwendung der Anwendung
+• Eine verständliche Beschreibung der Architektur der Software, insbesondere wenn diese aus dem
+   Technologien und Verfahren weichen von der Lehre ab.
+• Eine Plattform, auf der die Anwendung in der Cloud bereitgestellt wird
+• Dokumentation der ausgewählten Plattform(en), Technologie(n), Architektur und Lösungsansätze
+   Darüber hinaus wird darüber nachgedacht, warum dies gewählt wurde und welche Vorteile und potenziellen Risiken es mit sich bringt
+   bringt.
+• Reflexion über Skalierbarkeit, Hochverfügbarkeit, Portierung und mögliche Herausforderungen
+   operativer Betrieb.
 
-## Getting Started
+## Erste Schritte
 
-### Prerequisites
+### Voraussetzungen
 
-You should have a virtual machine Ubuntu Linux.
+Sie sollten eine virtuelle Maschine mit Ubuntu Linux haben.
 
 ### Installation
 
-Please follow these steps so that everything works:
+Bitte befolgen Sie diese Schritte, damit alles funktioniert:
 
-1. **Install git
+1. **Git installieren:**
+   
   ```bash
    sudo apt install -y git
    ```
 
-2. **Clone the Repository:**
+2. **Das Repository klonen:**
 
    ```bash
    git clone https://github.com/oK4rma/Praxisarbeit_VCID_Steiner_Tobyas.git
    ```
 
-2. **Navigate to the Directory:**
+3. **Navigieren Sie zum Verzeichnis:**
 
    ```bash
    cd Praxisarbeit_VCID_Steiner_Tobyas
    ```
 
-4. **Start application**
+4. **Anwedung starten**
 
    ```bash
    docker compose up --build
    ```
-  This will now install all requiremtens from the "requirements.txt" and will start the application with NGINX and GUNICORN
+  Dadurch werden nun alle Anforderungen aus der „requirements.txt“ installiert und die Anwendung mit NGINX und GUNICORN gestartet
 
-5. **Running application**
+5. **Anwendung starten**
 
-   Since the application has been completely containerized, the Linux machine can simply be closed when it is hosted. The application continues to run in the background.
+   Da die Anwendung vollständig in Containern verpackt ist, kann die Linux-Maschine beim Hosten einfach geschlossen werden. Die Anwendung läuft weiterhin im Hintergrund.
 
-6. **Stop application**
+6. **Anwendung stoppen**
 
-    The application can be stpotted using the key combination “CTRL” + “C”.
+    Mit der Tastenkombination „STRG“ + „C“ kann die Anwendung gestoppt werden.
  
 
-## Testing
+## Testen
 
-To do this, the file “boot.sh” must be started. This creates a test environment, installs all requirements and runs the three automated tests. If these have been carried out successfully, the manual tests can also be carried out.
+Dazu muss die Datei „boot.sh“ gestartet werden. Dadurch wird eine Testumgebung erstellt, alle Anforderungen installiert und die drei automatisierten Tests ausgeführt. Wenn diese erfolgreich durchgeführt wurden, können auch die manuellen Tests durchgeführt werden.
 
 ```bash
 ./boot.sh
