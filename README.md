@@ -2,24 +2,16 @@
 
 ## Inhaltsverzeichnis
 
-• [Auftrag](#Auftrag)
-  • [Warum dieses Projekt?](#Warum-dieses-Projekt?)
-  
-  •• Ziel
-  
-  •• Genauer Auftrag
-  
-  •• Themeninhalte
-  
-• Erste SChritte
-
-  • Voraussetzung
-  
-  • Installation
-  
-  • Genauer Auftrag
-  
-• Testen
+- [Auftrag](#Auftrag)
+  - [Warum dieses Projekt?](#Warum-dieses-Projekt?)
+  - [Ziel](#ziel)
+  - [Genauer Auftrag](#genauer-auftrag)
+  - [Themeninhalte](#themeninhalte)
+- [Erste Schritte](#Erste-Schritte)
+  - [Voraussetzung](#Voraussetzung)
+  - [Installation](#Installation)
+  - [Genauer Auftrag](#Genauer-Auftrag)
+- [Testen](#Testen)
 
 
 ## Auftrag
