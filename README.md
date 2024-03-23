@@ -8,7 +8,7 @@
   - [Genauer Auftrag](#Genauer-Auftrag)
   - [Themeninhalt](#Themeninhalt)
 - [Erste Schritte](#Erste-Schritte)
-  - [Voraussetzung](#Voraussetzung)
+  - [Voraussetzungen](#Voraussetzungen)
   - [Installation](#Installation)
   - [Genauer Auftrag](#Genauer-Auftrag)
 - [Testen](#Testen)
