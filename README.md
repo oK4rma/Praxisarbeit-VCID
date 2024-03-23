@@ -4,13 +4,13 @@
 
 • Auftrag
 
-  • Warum dieses Projekt?
+  •• Warum dieses Projekt?
   
-  • Ziel
+  •• Ziel
   
-  • Genauer Auftrag
+  •• Genauer Auftrag
   
-  • Themeninhalte
+  •• Themeninhalte
   
 • Erste SChritte
 
