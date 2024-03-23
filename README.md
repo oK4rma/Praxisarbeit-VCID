@@ -11,17 +11,7 @@ Im Rahmen dieser qualifikationsrelevanten Praxisarbeit soll das Erlernte in eine
 
 ### Genauer Arbeitsauftrag
 
-Ihre praktische Arbeit soll folgende Ergebnisse liefern:
-• Eine ausführbare Anwendung mit Flask und einer Datenbank
-• Eine kurze Dokumentation zur Verwendung der Anwendung
-• Eine verständliche Beschreibung der Architektur der Software, insbesondere wenn diese aus dem
-   Technologien und Verfahren weichen von der Lehre ab.
-• Eine Plattform, auf der die Anwendung in der Cloud bereitgestellt wird
-• Dokumentation der ausgewählten Plattform(en), Technologie(n), Architektur und Lösungsansätze
-   Darüber hinaus wird darüber nachgedacht, warum dies gewählt wurde und welche Vorteile und potenziellen Risiken es mit sich bringt
-   bringt.
-• Reflexion über Skalierbarkeit, Hochverfügbarkeit, Portierung und mögliche Herausforderungen
-   operativer Betrieb.
+Ihre praktische Arbeit soll die folgenden Ergebnisse erzielen: Eine voll funktionsfähige Anwendung mit Flask und einer Datenbank erstellen. Eine prägnante Dokumentation zur Nutzung der Anwendung bereitstellen. Eine klare Beschreibung der Softwarearchitektur liefern, insbesondere wenn diese von den im Lehrplan behandelten Technologien und Verfahren abweicht. Eine geeignete Cloud-Plattform für die Bereitstellung der Anwendung wählen und dokumentieren, einschließlich der Gründe für die Auswahl sowie der damit verbundenen Vor- und Nachteile. Eine Reflexion über die Skalierbarkeit, Hochverfügbarkeit, Portierung und potenzielle Herausforderungen im operativen Betrieb der Anwendung durchführen.
 
 ## Erste Schritte
 
@@ -35,7 +25,6 @@ Bitte befolgen Sie diese Schritte, damit alles funktioniert:
 
 1. **Git installieren:**
 
-   
   ```bash
    sudo apt install -y git
    ```
