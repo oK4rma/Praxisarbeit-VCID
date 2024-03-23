@@ -3,15 +3,25 @@
 ## Inhaltsverzeichnis
 
 • Auftrag
+
   • Warum dieses Projekt?
+  
   • Ziel
+  
   • Genauer Auftrag
+  
   • Themeninhalte
+  
 • Erste SChritte
+
   • Voraussetzung
+  
   • Installation
+  
   • Genauer Auftrag
+  
 • Testen
+
 
 ## Auftrag
 
