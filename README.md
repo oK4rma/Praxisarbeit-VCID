@@ -34,6 +34,7 @@ Sie sollten eine virtuelle Maschine mit Ubuntu Linux haben.
 Bitte befolgen Sie diese Schritte, damit alles funktioniert:
 
 1. **Git installieren:**
+
    
   ```bash
    sudo apt install -y git
